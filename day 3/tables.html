@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tables</title>
+        <style>
+            /* table {
+                border: 1px solid black;
+            }
+
+            td {
+                border: 1px solid black;
+            } */
+
+
+            table , td, th {
+                border: 1px solid black;
+            }
+
+        </style>
+    </head>
+    <body>
+        <h1>simple table</h1>
+        <table>
+            <tr>
+                <td>Header 1</td>
+                <td>Header 2</td>
+                <td>Header 3</td>
+            </tr>
+            <tr>
+                <td>Data 1</td>
+                <td>Data 2</td>
+                <td>Data 3</td>
+            </tr>
+            <tr>
+                <td>Data 1</td>
+                <td>Data 2</td>
+                <td>Data 3</td>
+            </tr>
+            <tr>
+                <td>Data 1</td>
+                <td>Data 2</td>
+                <td>Data 3</td>
+            </tr>
+        </table>
+        <h1>heading table</h1>
+        <table>
+            <tr>
+                <th>No.</th>
+                <th>Full Name</th>
+                <th>Position</th>
+                <th>Salary</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Ahmad ali ahmad</td>
+                <td>Manager</td>
+                <td>$2000</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>ali</td>
+                <td>Lab</td>
+                <td>$1000</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Adeel</td>
+                <td>Developer</td>
+                <td>$2000</td>
+            </tr>
+        </table>
+
+        <h1>Caption Table</h1>
+        <table>
+            <!-- <caption>Employee Details</caption> -->
+            <caption><h3>Employee Details</h3></caption>
+            <tr>
+                <th>No.</th>
+                <th>Full Name</th>
+                <th>Position</th>
+                <th>Salary</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Ahmad ali ahmad</td>
+                <td>Manager</td>
+                <td>$2000</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>ali</td>
+                <td>Lab</td>
+                <td>$1000</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Adeel</td>
+                <td>Developer</td>
+                <td>$2000</td>
+            </tr>
+        </table>
+
+        <h1>Table Sections</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>Full Name</th>
+                    <th>Position</th>
+                    <th>Salary</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Ahmad ali ahmad</td>
+                    <td>Manager</td>
+                    <td>$2000</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>ali</td>
+                    <td>Lab</td>
+                    <td>$1000</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Adeel</td>
+                    <td>Developer</td>
+                    <td>$2000</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Abdullah</td>
+                    <td>Frontend Developer</td>
+                    <td>$1500</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>Total</td>
+                    <td>$6500</td>
+                </tr>
+            </tfoot>
+        </table>
+
+        <h1>Col group Tables</h1>
+        <table>
+            <!-- <caption>Employee Details</caption> -->
+            <colgroup>
+                <col>
+                <col>
+                <col>
+                <col style="background-color: bisque;">
+            </colgroup>
+
+            <tr style=" background-color: aqua; ">
+                <th>No.</th>
+                <th>Full Name</th>
+                <th>Position</th>
+                <th>Salary</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Ahmad ali ahmad</td>
+                <td>Manager</td>
+                <td>$2000</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>ali</td>
+                <td>Lab</td>
+                <td>$1000</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Adeel</td>
+                <td>Developer</td>
+                <td>$2000</td>
+            </tr>
+        </table>
+
+        <h1>Col Span Table</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>Full Name</th>
+                    <th>Position</th>
+
+                    <th>Salary</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Ahmad ali ahmad</td>
+                    <td>Manager</td>
+                    <td>$2000</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>ali</td>
+                    <td>Developer</td>
+                    <td>$1000</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Adeel</td>
+                    <td>Developer</td>
+                    <td>$2000</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Abdullah</td>
+                    <td>Frontend Developer</td>
+                    <td>$1500</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="3"> Total</td>
+                    <td>$6500</td>
+                </tr>
+            </tfoot>
+        </table>
+
+
+        <h1>Row Span Table</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>Full Name</th>
+                    <th>Position</th>
+
+                    <th>Salary</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td rowspan="2">Ahmad ali</td>
+                    <td>Manager</td>
+                    <td>$2000</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <!-- <td>Ahmad ali</td> -->
+                    <td rowspan="2">Developer</td>
+                    <td>$1000</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Adeel</td>
+                    <!-- <td>Developer</td> -->
+                    <td>$2000</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Abdullah</td>
+                    <td>Frontend Developer</td>
+                    <td>$1500</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td> Total</td>
+                    <td>$6500</td>
+                </tr>
+            </tfoot>
+        </table>
+
+        <h1>table example</h1>
+        <table>
+            <caption>Example Table</caption>
+            <colgroup>
+                <col>
+                <col style=" background-color:bisque">
+                <col>
+                <col>
+            </colgroup>
+
+
+            <thead>
+                <tr>
+                    <th colspan="4">TITLE</th>
+                </tr>
+                <tr>
+                    <th colspan="2" >Subtitle</th>
+                    <th colspan="2">Subtitle</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr style=" background-color:aqua">
+                    <td>item 1</td>
+                    <td>item 123</td>
+                    <td rowspan="5">item 254</td>
+                    <td>item 362</td>
+                </tr>
+                <tr>
+                    <td>item 1</td>
+                    <td>item 123</td>
+                    <!-- <td>item 254</td> -->
+                    <td>item 362</td>
+                </tr>
+                <tr>
+                    <td>item 1</td>
+                    <td>item 123</td>
+                    <!-- <td>item 254</td> -->
+                    <td>item 362</td>
+                </tr>
+                <tr>
+                    <td>item 1</td>
+                    <td>item 123</td>
+                    <!-- <td>item 254</td> -->
+                    <td>item 362</td>
+                </tr>
+                <tr>
+                    <td>item 1</td>
+                    <td>item 123</td>
+                    <!-- <td>item 254</td> -->
+                    <td>item 362</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="2">Subtitle</td>
+                    <td colspan="2">Subtitle</td>
+                </tr>
+            </tfoot>
+        </table>
+    </body>
+</html>
