@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Forms</title>
+    </head>
+    <body>
+        <!-- <h1>Lorem ipsum, dolor sit amet consectetur adipisicing elit. </h1>
+        <h2>Lorem ipsum, dolor sit amet consectetur adipisicing elit. </h2>
+        <h3>Lorem ipsum, dolor sit amet consectetur adipisicing elit. </h3>
+        <h4>Lorem ipsum, dolor sit amet consectetur adipisicing elit. </h4>
+        <h5>Lorem ipsum, dolor sit amet consectetur adipisicing elit. </h5>
+        <h6>Lorem ipsum, dolor sit amet consectetur adipisicing elit. </h6>
+
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. In aspernatur assumenda adipisci. Ratione sed, recusandae mollitia nesciunt placeat optio hic quos blanditiis accusantium velit nemo quia. Vel corrupti porro consequatur.</p> -->
+    
+        <!--  This is forms -->
+        <h1>Forms</h1>
+        <form>
+            <!-- default input -->
+            <input>
+
+            <!-- text type input  -->
+            <input type="text" name="first_name">
+
+            <!-- name the input for sending data to server  -->
+            <input type="text" name="last_name">
+
+            <!-- number type input  -->
+            <input type="number" name="age">
+            
+            <!-- date type input  -->
+            <input type="date" name="dob">
+
+            <!-- passowrd type input  -->
+            <input type="password" name="password">
+
+            <!-- button the sumbit to submit the form  -->
+            <input type="submit" value="submit">
+
+            <!-- normal button to perfom any js task  -->
+            <input type="button" value="submit">
+        </form>
+
+        <!-- method="GET" -->
+        <!-- define the method of submitting the form -->
+        <!-- define the action to give a path where form will be submitted -->
+        <form method="GET" action="">
+            <!-- <input> -->
+
+            <!-- lable the input as heading -->
+            <label for="first_name"> First Name </label>
+            <!-- define value to give intial value to any input -->
+            <input type="text" name="first_name" id="first_name" value="Ahmad">
+            <br>
+            
+            <label for="last_name">Last Name</label>
+            <!-- define id to uniquely identify any tag-->
+            <input type="text" name="last_name" id="last_name">
+            <br>
+            
+            
+            <input type="number" name="age" placeholder="Enter your age">
+            <input type="date" name="dob">
+            <!-- place holder used instead of label in the input  -->
+            <input type="password" name="password" placeholder="Enter password">
+            <br>
+            
+            <!-- radio used to select 1 option from multiple -->
+            <label >Gender
+                <input type="radio" value="Male" name="gender">Male
+                <input type="radio" value="Female" name="gender">Female 
+            </label>
+            <br>
+
+            <label>Batch
+                <input type="radio" name="batch" value="morning">Morning
+                <input type="radio" name="batch" value="evening">Evening
+            </label>
+            <br>
+
+            <!-- checkbox can be used for multiple selection options -->
+            <input type="checkbox" name="urdu" value="1">Urdu
+            <input type="checkbox" name="english" value="1">English
+            <input type="checkbox" name="math" value="1">math
+            <input type="checkbox" name="science" value="1">science
+
+            <input type="checkbox" name="">Terms and Conditions
+            <br>
+            
+            <label for="desc">Desctiption</label>
+            <!-- text area used for entering multi lines data as input -->
+            <textarea name="desc" id="desc" cols="50" rows="3"></textarea>
+            <br>
+
+            <label for="courses">Courses</label>
+            <!-- drop down for displaying multiple options for user -->
+            <select name="courses" id="courses">
+                <option value="">Please select a course</option>
+                <option value="python-programing">Python programing</option>
+                <option value="web-dev" selected>web development</option>
+                <option value="app-dev">app development</option>
+                <option value="dig-mark">Digital marketing</option>
+            </select>
+
+            <br>
+
+            <label for="city">City</label>
+            <select name="city" id="city">
+                <option value="">Select a city</option>
+
+                <!-- group the same options of a dropdown-->
+                <optgroup label="Punjab">
+                    <option value="lhr">Lahore</option>
+                    <option value="mul">Multan</option>
+                </optgroup>
+                <optgroup label="Sindh">
+                    <option value="khi">karachi</option>
+                    <option value="sak">Sakhar</option>
+                </optgroup>
+                <optgroup label="KPK">
+                    <option value="pes">Peshawar</option>
+                    <option value="saw">Sawat</option>
+                </optgroup>
+                <optgroup label="Balochistan">
+                    <option value="que">Quetta</option>
+                    <option value="gaw">Gawadar</option>
+                </optgroup>
+                
+                <optgroup label="GB">
+                    <option value="gb">Gilgit</option>
+                    <option value="hun">Hunza</option>
+                </optgroup>
+           
+            </select>
+
+            <br>
+            <!-- <button type="button">Signup</button> -->
+            <button type="sumbit">Signup</button>
+            <!-- <input type="submit" value="submit"> -->
+            <!-- <input type="button" value="submit"> -->
+        </form>
+
+    
+        <h1>Fieldset form</h1>
+        <form>
+
+            <!-- group the same input of a  -->
+            <fieldset>
+                <legend>Your Address</legend>
+                
+                <label for="f_name">First Name</label>
+                <input type="text" name="f_name" id="f_name">
+                
+                <br>
+                <label for="l_name">Last Name</label>
+                <input type="text" name="l_name" id="l_name">
+    
+                <br>
+                <label for="street">Street</label>
+                <input type="text" name="street" id="street">
+    
+                <br>
+                <label for="city">City</label>
+                <input type="text" name="city" id="city">
+            </fieldset>
+           
+        </form>
+    </body>
+</html>
+
+
+
+
