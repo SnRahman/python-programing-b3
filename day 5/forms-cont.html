@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Forms Cont.</title>
+    <style>
+        #div1 {
+            border: 1px solid black;
+            height: 100px;
+            width: 100px;
+        }
+
+        .class1 {
+            border: 1px solid black;
+            height: 100px;
+            width: 100px;
+            background-color: aqua;
+        }
+
+        .class2 {
+            border: 5px solid black;
+            height: 200px;
+            width: 200px;
+            background-color:aquamarine;
+        }
+
+
+
+
+    </style>
+    
+    </head>
+    <body>
+        
+        <form method="GET" action="">
+
+            <label for="city"> City </label>
+            <!-- datalist  -->
+            <input type="text" name="city" id="city" list="cities" autocomplete="off">
+            <datalist id="cities">
+                <option value="Lahore">
+                <option value="Karachi">
+                <option value="Sakhar">
+            </datalist>
+
+            <br>
+            <label for="province">Province</label>
+            <input type="text" name="province" id="province" list="provinces">
+            <datalist id="provinces">
+                <option value="Punjab">
+                <option value="Sindh">
+                <option value="Balochistan">
+                <option value="KPK">
+                <option value="DGB">
+            </datalist>
+
+            <!-- output -->
+            <output> test </output>
+
+
+
+
+           
+
+            <br>
+            <button>Submit</button>
+        </form>
+
+<hr>
+
+        <!-- target -->
+        <!-- target="_blank _self _parent _top -->
+        <form action="" target="_blank">
+            <label for="city"> City </label>
+            <input type="text" name="city" id="city">
+            <button>submit</button>
+        </form>
+
+
+        <hr>
+        <!-- novalidate -->
+        <form>
+            <!-- autocomplete -->
+            <input type="text" name="first_name" placeholder="First Name" autocomplete="off" required><br>
+            <!-- <input type="text" name="first_name" placeholder="First Name" autocomplete="on"> -->
+
+            <input type="text" name="last_name" placeholder="Last Name" ><br>
+            <!-- requred input -->
+            <input type="text" name="email" placeholder="email" required><br>
+
+
+            <!-- selected -->
+            <label for="country">Country</label>
+            <select name="country" id="country">
+                <option value="">Select country</option>
+                <option value="" > Saudia</option>
+                <option value=""> Iran</option>
+                <option value="" selected> Pakistan</option>
+                <option value=""> India</option>
+                <option value="" > China</option>
+            </select>
+            <br>
+            <!-- multiple -->
+            <label for="Courses">Courses</label>
+            <select name="Courses" id="Courses" multiple>
+                <option value="">Select course</option>
+                <option value="">web programing</option>
+                <option value="">app programing</option>
+                <option value="">Python programing</option>
+                <option value="">digital marketing</option>
+            </select>
+            <br>
+
+            <!-- readonly -->
+            <label for="email">Email</label>
+            <input type="text" name="email" id="email" value="test@gmail.com" readonly>
+             <br>
+
+             <!-- disabled -->
+            <label for="user_email">Email</label>
+            <input type="text" name="user_email" id="user_email" value="test@gmail.com" disabled >
+            <br>
+
+            <!-- size -->
+            <label for="user_email1">Email</label>
+            <input type="text" name="user_email1" id="user_email1" value="test@gmail.com" size="55" >
+            <br>
+
+            <input type="text" name="f_name" placeholder="First Name" maxlength="10">
+            <br>
+            <div>
+                
+            </div>
+            <!-- min -->
+            <input type="number" name="age" placeholder="Age min 13" min="18">
+            <br>
+
+            <!-- max -->
+            <input type="number" name="age1" placeholder="Age max 65" max="65">
+            <br>
+
+            <!-- min max -->
+            <input type="number" name="age2" placeholder="Age 18-65"  max="65" min="18">
+            <br>
+
+            <!-- step -->
+            <input type="number" name="price" placeholder="Price"  step="0.001">
+            <br>
+
+            <!-- pattern -->
+            <!-- [0-9]{5}  / [a-z]{4} / [0-9a-z]{4} -->
+            <input type="text" name="pattern" placeholder="Pattern"  pattern="[0-9a-z]+">
+            <br>
+
+
+
+            <button>Submit</button>
+        </form>
+        <hr>
+
+        <!-- <form>
+            <input type="text" name="f_name" placeholder="First Name" maxlength="5">
+            <br>
+            <button>Submit</button>
+        </form> -->
+    </body>
+
+    <div id="div1"></div>
+    <div class="class1"></div>
+    <div class="class1"></div>
+    <div class="class2"></div>
+
+
+</html>
