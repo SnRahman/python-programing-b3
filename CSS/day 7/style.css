@@ -1,0 +1,84 @@
+.paragraph {
+    text-align: center;
+    /* text-align:right; */
+}
+
+#large-p {
+    text-align: justify;
+    text-align-last: center;
+}
+
+.colored_p {
+    color:red
+}
+
+#underline {
+    /* text-decoration-line: none; */
+    /* text-decoration-line:overline; */
+    /* text-decoration-line: line-through; */
+    /* background-color: rebeccapurple; */
+
+    /* text-decoration-color: blue; */
+    /* text-decoration-color:#059862; */
+
+
+    /* text-decoration-style: dashed; */
+    /* text-decoration-style:dotted; */
+    /* text-decoration-style:double; */
+    /* text-decoration-style:solid; */
+    /* text-decoration-style:wavy; */
+
+
+    /* text-decoration-thickness: 5px; */
+
+    text-decoration: underline #059862 wavy 10px ;
+}
+
+a {
+    text-decoration: none;
+}
+.transform {
+    /* text-transform: uppercase; */
+    /* text-transform: lowercase; */
+    /* text-transform:capitalize; */
+    text-transform:none;
+}
+
+#large-paragraph {
+    text-indent: 50%;
+    /* line-height: 10px; */
+    /* letter-spacing: 2px; */
+    /* word-spacing: 10px; */
+}
+
+.first_letter {
+    color:#059862
+}
+
+.shadow {
+    /* background-color:aqua;
+    height: 300px;
+    width: 300px; */
+
+    /* text-shadow: horizontal_value vertical_value blur color; */
+    
+    /* text-shadow: 2px 2px 5px red; */
+    /* text-shadow: 2px 2px 5px red , 2px 2px 5px blue; */
+    text-shadow: 2px 2px 5px red , -2px -2px 5px blue;
+}
+
+#p-font {
+    /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+    /* font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; */
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 10px;
+    font-style: italic;
+    font-weight: 700;
+
+
+}
+
+
+
+
+
