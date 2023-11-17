@@ -14,7 +14,7 @@
 
 #underline {
     /* text-decoration-line: none; */
-    /* text-decoration-line:overline; */
+    text-decoration-line:overline;
     /* text-decoration-line: line-through; */
     /* background-color: rebeccapurple; */
 
@@ -22,7 +22,7 @@
     /* text-decoration-color:#059862; */
 
 
-    /* text-decoration-style: dashed; */
+    text-decoration-style: dashed;
     /* text-decoration-style:dotted; */
     /* text-decoration-style:double; */
     /* text-decoration-style:solid; */
