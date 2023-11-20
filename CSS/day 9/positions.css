@@ -1,0 +1,106 @@
+.div1 {
+    background-color: aqua;
+    height: 100px;
+    width: 100px;
+
+    top: 100px;
+    bottom: 100px;
+    left: 100px;
+    right: 100px;
+    position:static;
+}
+
+.div2 {
+    background-color:red;
+    height: 100px;
+    width: 100px;
+
+    top: 100px;
+    /* bottom: 100px; */
+    left: 100px;
+    /* right: 100px; */
+    position:relative;
+}
+
+.div3 {
+    background-color:blue;
+    height: 100px;
+    width: 100px;
+
+    top: 0;
+    right: 500px;
+    position:fixed;
+}
+
+.div4 {
+    background-color:blue;
+    height: 100px;
+    width: 100px;
+    top:0;
+    left:500px;
+    position:sticky;
+}
+
+.parent {
+    margin: 100px;
+    background-color: aqua;
+    height: 800px;
+    width: 500px;
+    position: relative;
+}
+
+.child {
+    position: absolute;
+    /* position: relative; */
+    background-color: blueviolet;
+    height: 100px;
+    width: 100px;
+    /* left:10px;
+    top:50px; */
+    /* top:25%; */
+    bottom: 100px;
+    right: 50px;
+}
+
+
+
+.child1 {
+    position: absolute;
+    /* position: relative; */
+    background-color:aquamarine;
+    height: 100px;
+    width: 100px;
+    /* left:10px;
+    top:50px; */
+    /* top:25%; */
+    bottom: 100px;
+    right: 50px;
+}
+
+
+.index1 {
+    background-color: aqua;
+    height: 500px;
+    width: 500px;
+    z-index: 3;
+    position: relative;
+}
+
+.index2 {
+    background-color:bisque;
+    height: 400px;
+    width: 400px;
+    z-index: 2;
+    bottom: 100px;
+    position: relative;
+}
+
+.index3 {
+    background-color:blue;
+    height: 300px;
+    width: 300px;
+    z-index: 1;
+    bottom: 600px;
+    left:200px ;
+    position: relative;
+}

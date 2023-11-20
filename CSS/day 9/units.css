@@ -1,0 +1,52 @@
+.clip {
+    background: red;
+    height: 500px;
+    width: 500px;
+    padding:50px;
+    border: 10px dotted black;
+    /* background-clip: border-box; */
+    /* background-clip:padding-box; */
+    background-clip:content-box;
+}
+
+.size-em {
+    font-size: 30px;
+    width: 50em;
+    /* width: 500px; */
+    height: 50em;
+    background-color: aquamarine;
+}
+
+html {
+    font-size: 20px;
+}
+.size-rem {
+    background-color: bisque;
+    height: 50rem;
+    width: 50rem;
+}
+
+.size-vh {
+    background-color: blueviolet;
+    width: 50vh;
+    height: 50vh;
+}
+
+.child {
+    background-color: brown;
+    /* width: 50px; */
+    width: 50%;
+    /* height: 50px; */
+    height: 50%;
+}
+
+
+.size-vw {
+    background-color:blue;
+    width: 50vw;
+    height: 50vw;
+}
+
+
+
+
