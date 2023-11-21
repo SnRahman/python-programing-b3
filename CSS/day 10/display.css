@@ -1,0 +1,39 @@
+.display {
+    background-color: blue;
+    /* display: inline; */
+    /* display: block; */
+    display: none;
+    color: white;
+}
+
+.visibility {
+    background-color: red;
+    /* visibility: visible; */
+    visibility: hidden;
+    /* display: none; */
+}
+
+a {
+    display: block;
+}
+
+p {
+    display: inline;
+}
+
+#div1 {
+    height: 100px;
+    width: 100px;
+    border: 5px solid black;
+}
+
+.p1 {
+    height: 100px;
+    width: 100px;
+    background-color: aquamarine;
+    /* display: block; */
+    display: inline-block;
+}
+
+
+
