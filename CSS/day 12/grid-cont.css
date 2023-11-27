@@ -1,0 +1,156 @@
+.grid-container {
+    background-color: aquamarine;
+    display: grid;
+    grid-template-columns: repeat(3,auto);
+    /* row-gap: 10px;
+    column-gap: 10px; */
+
+    /* gap: 10px; */
+    gap: 10px 20px;
+}
+
+.grid-item {
+    background-color: yellow;
+    /* margin: 10px; */
+}
+
+
+.grid-container1 {
+    background-color: wheat;
+    display: grid;
+    grid-template-columns: repeat(3,auto);
+    gap: 10px;
+
+    /* horizontal alignment */
+    /* justify-content:center; */
+    /* justify-content:flex-start; */
+    /* justify-content:flex-end; */
+    /* justify-content:baseline; */
+    /* justify-content:space-around; */
+    /* justify-content:space-between; */
+    justify-content:space-evenly;
+}
+
+
+.grid-container2 {
+    background-color: wheat;
+    display: grid;
+    grid-template-columns: repeat(2,auto);
+    gap: 10px;
+    height: 100vh;
+    /* align-content: center; */
+    /* align-content:flex-start; */
+    /* align-content:flex-end; */
+    /* align-content:space-around; */
+    /* align-content:space-between; */
+    align-content:space-evenly;
+}
+
+
+.grid-container3 {
+    background-color: wheat;
+    display: grid;
+    grid-template-columns: repeat(5,auto);
+    gap: 20px;
+    /* height: 100vh; */
+}
+
+.item-3 {
+    grid-row-start:1;
+    grid-row-end: span 4;
+    text-align: center;
+}
+
+.item-5 {
+    /* grid-row-start:1; */
+    grid-row-end: span 3;
+}
+
+.item-1 {
+    grid-row-end: span 2;
+}
+
+.item-4 {
+    grid-row: 1 / span 2;
+}
+
+/* column  */
+
+.sub-grid-4 {
+    grid-column-start: 1;
+    grid-column-end: span 3;
+}
+
+.sub-grid-11 {
+    grid-column-start: 1;
+    /* grid-column-end: span 3; */
+}
+
+.sub-grid-1 {
+    grid-column: 1 / span 4;
+}
+
+
+.grid-container4 {
+    background-color: wheat;
+    display: grid;
+    grid-template-columns: repeat(5,auto);
+    gap: 20px;
+    grid-template-rows: 50px 300px 50px;
+    /* grid-template-columns: 50px 300px 50px; */
+
+}
+.layout-1 {
+    grid-column:1 / span 5;
+}
+
+.layout-2 {
+    grid-row-end: span 1;
+}
+
+.layout-3 {
+    grid-column-end: span 3;
+    grid-row-end: span 1;
+}
+.layout-4 {
+    grid-row-end: span 1;
+}
+
+.layout-5 {
+    grid-column-end: span 5;
+}
+
+/* area */
+
+.grid-container5 {
+    background-color: violet;
+    gap: 20px;
+    display: grid;
+
+    grid-template-rows: 100px 500px 100px;
+    grid-template-areas:
+    'header header header header'
+    'aside content content content'
+    'footer footer footer footer';
+
+
+
+
+}
+
+.header {
+    grid-area: header;
+}
+
+.aside {
+    grid-area: aside;
+}
+
+.content {
+    grid-area: content;
+}
+
+.footer {
+    grid-area: footer;
+}
+
