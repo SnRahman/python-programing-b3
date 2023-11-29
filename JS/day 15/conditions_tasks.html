@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Conditional Tasks</title>
+    </head>
+    <body>
+        
+        <script>
+            // 1 - check two given numbers and return true if one of them is 50 or if their sum is 50
+            let a = 25
+            let b = 25
+
+            if( a==50 || b == 50 || (a+b)==50){
+                console.log('True')
+            }else{
+                console.log('False')
+            }
+
+            // 2 - check from the given number, weather it is positive or negative.
+
+            let number = -25
+        
+            if(number > 0){
+                console.log('Positive')
+            }else if(number < 0){
+                console.log('Negative')
+            } else {
+                console.log('Zero')
+            }
+
+            // 3- check weather a given number is even or odd.
+
+            let even_odd = 2524537
+            // console.log( even_odd % 2 )
+            if( even_odd % 2 == 0 ){
+                console.log('Even')
+            }else{
+                console.log('Odd')
+            }
+
+            // 3 - check weather a given positive number is a multiple of 3.
+
+            let multiplier3 = 60
+            if(multiplier3 % 3 == 0){
+                console.log('Multiplier of 3')
+            } else {
+                console.log('Not of multiplier of 3')
+            }
+
+            // 4- determine weather a given year is a leap year.
+            let year = 2004
+
+            if( (year%4 == 0 && year%100 != 0) || year%400 ==0 ){
+                console.log('leap year')
+            }else{
+                console.log('Not leap year')
+            }
+
+            // 5 - check from the given two numbers, weather the first number is "greater", "lesser" or "equal" to the second number.
+
+            let n1 = 56456
+            let n2 = 56454654
+
+            if(n1 > n2){
+                console.log('Greater')
+            } else if( n1 < n2){
+                console.log('Lesser')
+            } else {
+                console.log('Equall')
+            }
+
+            // 6- check from the three sides of triangle. use conditions to determine and display weather the triangle is "Equilateral" (all sides are equal), "Isosceles" (two sides are equal), or "Scalane" (no sides are equal)
+
+            let side1 = 87
+            let side2 = 87
+            let side3 = 87
+
+            if( side1== side2 && side2 == side3 ){
+                console.log('Equilateral')
+            }else if( side1== side2 || side1==side3 ||side2 == side3 ){
+                console.log('Isosceles')
+            }else {
+                console.log('Scalane')
+            }
+
+            // 7- check from the given month (1-12) if its "Winter" (December-Feburary), "Spring" (March-May), "Summer" (June-August), or "Autumn" OR "Fall" (September-November).
+            
+            let month = 10
+
+            if(month==12 || month==1 || month==2){
+                console.log('Winter')
+            }else if(month==3 || month==4 || month==5){
+                console.log('Spring')
+            }else if(month==6 || month==7 || month==8){
+                console.log('Summer')
+            }else{
+                console.log('Autumn')
+            }
+
+
+
+
+        </script>
+    </body>
+</html>

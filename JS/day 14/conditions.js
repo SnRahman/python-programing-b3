@@ -162,20 +162,21 @@ console.log('Percentange is: ' + marks)
 //     console.log('Fail')
 // }
 
-if(marks>=50 && marks<60){
-    console.log('E Grade')
-}else if(marks >= 60 && marks<70 ){
-    console.log('D Grade')
-}else if(marks >= 70 && marks<80){
-    console.log('C Grade')
-}else if(marks >= 80 && marks<90){
-    console.log('B Grade')
-}else if(marks >=90){
-    console.log('A Grade')
-} else {
-    console.log('Fail')
+if (marks>= 0 && marks <=100){
+    if(marks>=50 && marks<60){
+        console.log('E Grade')
+    }else if(marks >= 60 && marks<70 ){
+        console.log('D Grade')
+    }else if(marks >= 70 && marks<80){
+        console.log('C Grade')
+    }else if(marks >= 80 && marks<90){
+        console.log('B Grade')
+    }else if(marks >=90){
+        console.log('A Grade')
+    } else {
+        console.log('Fail')
+    }
 }
-
 
 console.log(10%2)
 
