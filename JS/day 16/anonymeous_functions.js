@@ -154,7 +154,9 @@ function div(a,b){
     console.log(a-b) 
 }
 
-
+// check length of any string
+let string = ' hello '
+console.log(string.length)
 
 
 
