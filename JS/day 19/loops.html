@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Loops</title>
+    </head>
+    <body>
+        
+        <script>
+            // console.log('Loops')
+            // console.log('Loops')
+            // console.log('Loops')
+            // console.log('Loops')
+            // console.log('Loops')
+            // console.log('Loops')
+            // console.log('Loops')
+            // console.log('Loops')
+            // console.log('Loops')
+            // console.log('Loops')
+            // console.log('Loops')
+            // console.log('Loops')
+
+            // for loop
+            // 1
+            // for(let i=0 ; i<5  ; i++){
+            //     console.log(i)
+            //     console.log( 'Usman' )
+            // }
+
+            // reverse iteration
+            // for(let i=10 ; i>0  ; i--){
+            //     console.log(i)
+            //     console.log( 'Usman' )
+            // }
+
+            let arr = ['Ahmad','Ali','Usman','Farrukh','Amir','Waseem','Naseem','Sultan','Aleem','Naeem','Faheem']
+            console.log(arr)
+            console.log(arr.length)
+            // console.log(arr[1])
+            // console.log(arr[2])
+            // console.log(arr[3])
+            // console.log(arr[10])
+
+
+            // for( let i=0 ; i< arr.length ; i++ ){
+            //     console.log(i)
+            //     console.log(arr[i])
+            // }
+
+            // 2
+            // for in -- can be used both for arrays and objects
+            // for( let a in arr ){
+            //     console.log(a)
+            //     console.log( arr[a] )
+            // }
+
+            let student_obj = {
+                first_name : 'ahmad',
+                last_name : 'mubeen',
+                course : 'python',
+                age : 18,
+                email : 'ahmadmubeen@gmail.com',
+                phone : '030012345678'
+            }
+
+            console.log(student_obj)
+            // console.log(student_obj.first_name)
+            // console.log(student_obj['last_name'])
+
+            for(let b in student_obj){
+                console.log(b + ' : ' + student_obj[b])
+                // console.log(b)
+                // console.log(student_obj[b])
+            }
+
+            
+            // 3 used just for arrays - not for objects
+            // for( let z of arr ){
+            //     console.log(z)
+            // }
+
+            // 4 for each
+            // arr.forEach( () => {} )\
+            console.log('For Each loop')
+            // 1 parameter will get values only
+            // arr.forEach( function (value){
+            //     console.log(index)
+            // } )
+
+            // to get index pass 2nd parameter
+            // arr.forEach( function (value,index){
+            //     console.log(index + ' : '+ value)
+            // } )
+
+
+            // 5 while loop
+
+            // example 1
+            // let count = 0
+            // while( count < 5 ){
+            //     console.log(count)
+            //     count++
+            // }
+
+
+            // let count = 0
+            // let check = true
+
+            // while( check == true ){
+            //     console.log(count)
+            //     count++
+
+            //     if( count == 20 ){
+            //         check = false
+            //     }
+            // }
+
+            // console.log('external ' +count)
+
+
+            // 6 do while
+
+            let count = 5
+
+            do{
+                console.log(count)
+                count++
+            }
+            while(count< 5)
+
+
+            // while( count < 5 ){
+            //     console.log(count)
+            //     count++
+            // }
+
+        </script>
+    </body>`
+</html>
