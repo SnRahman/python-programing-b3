@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dom Elements</title>
+    </head>
+    <body>
+        <h1 id="heading">Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim harum, magni eos distinctio corporis error nesciunt excepturi aperiam fugit corrupti, ipsa a iusto quidem quam voluptas unde quod voluptate qui?</h1>
+        <div id="container">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit libero iusto molestias numquam natus maiores maxime incidunt praesentium, id laboriosam itaque? Provident odit esse reiciendis incidunt repellendus consequatur consequuntur eos.</p>
+            <p id="paragraph" class=" background border ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit libero iusto molestias numquam natus maiores maxime incidunt praesentium, id laboriosam itaque? Provident odit esse reiciendis incidunt repellendus consequatur consequuntur eos.</p>
+            <p id="custom_attr" data-user_id="254"  data-user_email="user@gmail.com">Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit libero iusto molestias numquam natus maiores maxime incidunt praesentium, id laboriosam itaque? Provident odit esse reiciendis incidunt repellendus consequatur consequuntur eos.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit libero iusto molestias numquam natus maiores maxime incidunt praesentium, id laboriosam itaque? Provident odit esse reiciendis incidunt repellendus consequatur consequuntur eos.</p>
+        </div>
+
+        <div id="container1">
+            
+        </div>
+        <a href="https://www.google.com" id="anchor"> google</a>
+        
+        
+        <script>
+            // 1
+            // add style to any element
+        
+            let heading = document.getElementById('heading')
+            
+            heading.style.color = 'red'
+            heading.style.backgroundColor = 'yellow'
+            
+            // console.log(heading)
+
+            // 2
+            // create new element
+
+            let new_span = document.createElement('span')
+            console.log(new_span) 
+
+            // 3
+            // add content in any element
+            new_span.innerText = 'Span created by js'
+            console.log(new_span) 
+
+
+            let new_heading = document.createElement('h1')
+            // new_heading.innerText = 'Heading created by js'
+            new_heading.innerHTML = '<i> Heading created by js </i>'
+
+            // add new created element(s) using append function
+
+            // 4
+            let container = document.getElementById('container')
+            container.append(new_span,new_heading)
+            // container.append(new_heading)
+
+            // 5
+            // append just one element at a time
+            let new_h4 = document.createElement('h4')
+            new_h4.innerText = 'H4 Heading created by JS'
+
+            let container1 = document.getElementById('container1')
+            container1.appendChild(new_h4)
+
+            // 6
+            // append new element at start of the tag/element
+            let new_u = document.createElement('u')
+            new_u.innerText = 'Underline created by JS'
+            
+            // container.append(new_u) 
+            container.prepend(new_u) 
+
+            // 7
+            // overwrite the entire element
+            // container.innerHTML = '<h1>  heading </h1>'
+            
+            // 8
+            // remove any tag from document
+            
+            // a
+            // let heading1 = document.getElementById('heading')
+            // heading1.remove()
+            
+            // b 
+            // document.getElementById('heading').remove()
+
+            // 9
+            // get attribute 
+            
+            // a
+            let anchor = document.getElementById('anchor')
+            // let id = anchor.getAttribute('id')
+            let href = anchor.getAttribute('href')
+
+            // console.log(anchor)
+            // console.log(href)
+
+            // b
+            let attr = document.getElementById('anchor').href
+            console.log(attr)
+
+            // 10
+            // set attribute value
+            // anchor.setAttribute('href','https://www.youtube.com')
+            // anchor.setAttribute('class','anchor')
+            // anchor.setAttribute('id','youtube')
+            // anchor.innerText = 'Youtube'
+
+            // 11
+            // add classes using js
+            let paragraph = document.getElementById('paragraph')
+            // paragraph.setAttribute('class','jsclass')
+            paragraph.classList.add('jsclass')
+            
+            // 12
+            // remove class from any element
+            paragraph.classList.remove('border')
+            
+            // 13
+            // toggle the classes
+            // paragraph.classList.toggle('color')
+            paragraph.classList.toggle('background')
+            // console.log(paragraph)
+
+            // 14
+            // dataset
+            // get data set values 
+            let custom_attr = document.getElementById('custom_attr')
+            let user_id =  custom_attr.dataset.user_id
+            let user_email =  custom_attr.dataset.user_email
+            
+
+            // 15
+            // set dat set values
+            // custom_attr.dataset.phone_no = '0300123456789'
+            custom_attr.dataset.user_email = 'updated@gmail.com'
+
+
+            console.log(custom_attr)
+            console.log(user_id)
+            console.log(user_email)
+
+
+
+
+
+
+
+        
+
+            
+
+        </script>
+    </body>
+</html>
