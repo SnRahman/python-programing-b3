@@ -105,6 +105,16 @@ outer.addEventListener('click',(e)=>{
 })
 
 
+
+// menu context event
+// let menu = document.getElementById('menu')
+let menu = document.getElementById('body')
+menu.addEventListener('contextmenu',(e) => {
+    e.preventDefault()
+    console.log('menu context event is triggered.')
+})
+
+
 // tasks related
 let fun_facts = [
     'The oldest person ever to have lived (whose age could be authenticated), a French woman named Jeanne Louise Calment, was 122 years old when she died in 1997.',
