@@ -1,6 +1,9 @@
 let form = document.getElementById('form')
 const api_key = '3d94d884787c276b1107b5e5cac522ab'
 const kelvin_unit = 272.15
+const lat = 31.582045
+const lon = 74.329376
+let days = 7
 form.addEventListener('submit',async function(e){
     e.preventDefault()
     
@@ -11,7 +14,13 @@ form.addEventListener('submit',async function(e){
     }else {
         // let api_url = "https://api.openweathermap.org/data/2.5/weather?q="+city_name+ "&appid="+api_key
         let api_url = `https://api.openweathermap.org/data/2.5/weather?q=${city_name}&appid=${api_key}`
+        
+        // daily forcast data
+        // let api_url = `https://api.openweathermap.org/data/2.5/forecast/daily?q=${city_name}&cnt=${days}&appid=${api_key}`
+        // let api_url = `https://api.openweathermap.org/data/2.5/forecast?q=${city_name}&appid=${api_key}`
 
+        // air populaiton api
+        // let api_url = `http://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${api_key}`
         let response = await fetch(api_url)
         let data = await response.json()
 
@@ -21,6 +30,7 @@ form.addEventListener('submit',async function(e){
         get_weather(data)
         get_humidity(data)
         get_pressure(data)
+        console.log(data)
         console.log(response)
         console.log(api_url)
 
