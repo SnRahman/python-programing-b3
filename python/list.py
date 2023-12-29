@@ -109,9 +109,27 @@ else:
     print('not present') 
 
 
+a = 20
+b = '20'
+
+# if a == b:
+# type casting
+if a is int(b):
+    print('true')
+else:
+    print('false')
 
 
 
+""" 
+<li>Find the last element of an array without giving a hard-coded index.</li>
+<li>Check whether the first or the last index of an array has a specified 
+    value, let's say 5.</li>
+<li>Make an array to store the names of students and check whether that
+        array has your own name or not and also return the index of that value.</li>
+<li>Add the array element at the specified index.</li>
+<li>Delete the array element from the specified index.</li>
+"""
 
 
 
