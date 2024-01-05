@@ -1,0 +1,8 @@
+1. Create a Animal  Class with attributes.
+2. Create a animal class inheritance (Inheritance allows us to create a new class from an existing class.)
+3. A triangle is a polygon with 3 sides. 
+So, we can create a class called Triangle which  
+ s = (a + b + c) / 2
+ area = (s*(s-a)*(s-b)*(s-c)) ** 0.5
+ class triangle()
+
