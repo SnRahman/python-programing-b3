@@ -32,7 +32,8 @@ def name(n):
 
 @app.route('/redirect')
 def redirect_google():
-    # return redirect('https://www.google.com')
+    # return redirect('https://www.facebook.com')
+    # return url_for('home')
     return redirect( url_for('home') )
 
 @app.route('/redirect-to/<name>')
@@ -48,9 +49,6 @@ def redirect_to(name):
         return redirect( url_for('contact') )
     else:
         return 'function name out of scope.'
-
-
-
     return name
 
 
