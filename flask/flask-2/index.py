@@ -38,8 +38,6 @@ def register():
         return render_template('register.html',data=form_data)
         # return first_name
         # return request.form
-    
-
 
         return 'form is submited'
 
