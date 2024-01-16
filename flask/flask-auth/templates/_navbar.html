@@ -1,0 +1,48 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="Eighth navbar example">
+    <div class="container">
+      <a class="navbar-brand" href="/">ACIF APP</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample07" aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExample07">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/">Dashboard</a>
+          </li>
+          
+            {% if user_name is not none %}
+                <li class="nav-item">
+                    <a class="nav-link" href="/quiz">Quiz</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/todo">TODO</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/weather">Weather</a>
+                </li>
+            {% endif %}
+        
+        </ul>
+        <ul class="navbar-nav ">
+            {% if user_name is none %}
+                <li class="nav-item">
+                    <a class="nav-link" href="/login">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/signup">Signup</a>
+                </li>
+            {% else %}
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">{{ user_name }}</a>
+                    <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                    </ul>
+                </li>
+            {% endif %}
+          </ul>
+      </div>
+    </div>
+  </nav>

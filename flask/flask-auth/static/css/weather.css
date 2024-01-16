@@ -1,10 +1,12 @@
 body {
     background-color: #1DBF73;
+}
+
+.container-parent {
     display: flex;
     justify-content: center;
 }
-
-.container {
+.container-body {
     margin-top: 15px;
     background-color: #fff;
     width: 50vw;
@@ -18,7 +20,7 @@ body {
 
 }
 
-.container h1 {
+.container-body h1 {
     color: #1DBF73;
 }
 

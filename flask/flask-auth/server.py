@@ -8,55 +8,91 @@ connection = connector.connect(host='127.0.0.1',user='root',password='',database
 
 @app.route('/')
 def index():
+    user_name = session.get('user_name',None)
+    return render_template('dashboard.html',user_name=user_name)
+
+@app.route('/quiz')
+def quiz():
     if 'user_name' in session:
-        return render_template('dashboard.html')
+        user_name = session.get('user_name',None)
+
+        return render_template('quiz.html',user_name=user_name)
     else:
         flash('kindly login first!','danger')
         return redirect(url_for('login'))
 
 
-@app.route('/quiz')
-def quiz():
-    return render_template('quiz.html')
-
-
 @app.route('/todo')
 def todo():
-    return render_template('todo.html')
+    if 'user_name' in session:
+        user_name = session.get('user_name',None)
 
+        return render_template('todo.html',user_name=user_name)
+    else:
+        flash('kindly login first!','danger')
+        return redirect(url_for('login'))
 
 @app.route('/weather')
 def weather():
-    return render_template('weather.html')
+    if 'user_name' in session:
+        user_name = session.get('user_name',None)
 
+        return render_template('weather.html',user_name=user_name)
+    else:
+        flash('kindly login first!','danger')
+        return redirect(url_for('login'))
 
 @app.route('/signup',methods=['GET','POST'])
 def signup():
+    errors = False
     if request.method == 'GET':
-        return render_template('signup.html')
+        user_name = session.get('user_name',None)
+        return render_template('signup.html',user_name=user_name)
     else:
         first_name = request.form['first_name']
         last_name = request.form['last_name']
         email = request.form['email']
         password = request.form['password']
         confirm_password = request.form['confirm_password']
+        
+        if not first_name:
+            flash('First name is Required.','danger')
+            errors = True
+        
+        if not email:
+            flash('Valid Email is Required.','danger')
+            errors = True
 
-        if first_name and email and password and confirm_password and password == confirm_password:
+        if not password:
+            flash('Password is Required.','danger')
+            errors = True
+
+        if not confirm_password:
+            flash('confirm Password is Required.','danger')
+            errors = True
+
+        if password != confirm_password:
+            flash('Passwords Should be same','danger')
+            errors = True
+
+        if errors:
+            return redirect(url_for('signup'))
+        else:
             db = connection.cursor()
             db.execute("INSERT INTO users (first_name,last_name,email,password) VALUES(%s,%s,%s,%s) ",(first_name,last_name,email,password))
             connection.commit()
             db.close()
             flash('User registered successfully!','success')
             return redirect(url_for('index'))
-        else:
-            flash('Invalid information','danger')
-            return redirect(url_for('signup'))
+        
+            
 
 
 @app.route('/login',methods=['GET','POST'])
 def login():
     if request.method == 'GET':
-        return render_template('login.html')
+        user_name = session.get('user_name',None)
+        return render_template('login.html',user_name=user_name)
     else:
 
         email = request.form['email']
@@ -91,9 +127,6 @@ def logout():
 
     flash('user logged out Successfully!','success')
     return redirect(url_for('login'))
-
-
-
 
 if __name__ == '__main__':
     app.run(debug=True)

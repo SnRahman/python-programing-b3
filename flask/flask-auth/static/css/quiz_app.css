@@ -1,12 +1,15 @@
 body {
     background-color: #FF6348;
+}
+
+.quiz_container_parent{
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100vh;
 }
 
-#container {
+#quiz_container {
     background-color: #ECCC68;
     height: 50vh;
     width: 40vw;
@@ -22,7 +25,7 @@ h1 {
     color: #FF6348;
 }
 
-button {
+#start,.option-btn {
     color:#FF6348;
     /* width: 150px;
     height: 70px; */

@@ -27,7 +27,7 @@ let question_index = 0
 let result = 0
 
 // console.log(questions[question_index])
-let container = document.getElementById('container')
+let container = document.getElementById('quiz_container')
 
 // function to start the game on start button click
 function start(){
@@ -53,6 +53,7 @@ function add_question(){
         
         let option_btn = document.createElement('button')
         option_btn.innerText = option
+        option_btn.classList.add('option-btn')
         container.append(option_btn)
     }
     check_answer()

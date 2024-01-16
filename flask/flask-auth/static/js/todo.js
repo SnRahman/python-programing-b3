@@ -26,6 +26,7 @@ function add_new_item(){
     let todo = document.getElementById('todo_input').value
     
     let li = document.createElement('li')
+    li.classList.add('li-item')
     // li.innerHTML = '<span>'+ todo +'</span> <button id="item-btn">X</button>'
 
     let li_content = '<span>'+ todo +'</span> <button id="item-btn">X</button>'
@@ -38,7 +39,7 @@ function add_new_item(){
 }
 
 function add_item_events(){
-    let lis = document.querySelectorAll('li')
+    let lis = document.querySelectorAll('.li-item')
     for(let li of lis){
         let span = li.children[0]
         
