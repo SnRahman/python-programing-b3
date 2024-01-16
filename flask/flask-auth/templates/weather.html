@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href=" {{ url_for('static',filename='css/weather.css') }}">
+        <title>Weather App</title>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Weather Info</h1>
+            <form id="form">
+                <input type="text"  name="city_name" id="city_name" placeholder="Enter city Name">
+            </form>
+            <div id="dashboard">
+                <p id="date"></p> 
+                <p id="location"></p> 
+                <p > Temp: <span id="temp"> </span> </p>
+                <p>Feels Like <span id="feels_like"></span></p>
+                <p>Humidity: <span id="humidity"></span></p>
+                <p>Pressure: <span id="pressure"></span></p>
+            </div>
+        </div>
+
+        <script src="{{ url_for('static',filename='js/weather.js') }} " ></script>
+    </body>
+</html>
