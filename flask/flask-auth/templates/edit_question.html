@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Signup Form</title>
+        <title>Add Question</title>
          <!--
           <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css')  }}">
         -->
@@ -20,10 +20,9 @@
     </head>
     <body>
         {% include '_navbar.html'  %}
-
         <div class=' container d-flex justify-content-center '>
             <div>
-                <h1 class='text-center my-5'>Signup</h1>
+                <h1 class='text-center my-5'>Edit Question </h1>
                 {% with messages = get_flashed_messages(with_categories=True) %}
                     {% for category, message in messages %}
                         <div class="alert alert-{{ category }}" role="alert">
@@ -32,38 +31,46 @@
                     {% endfor %}
                 {% endwith %}
 
-                <form action='/signup'  method="POST" style='width:50vw'>
+                <form action='/question/edit/{{ question[0] }}'  method="POST" style='width:50vw'>
                     <div class="row">
-                        <div class="col-md-6 mb-3">
-                            <label for="first_name" class="form-label">First Name <span class='red-star'>*</span> </label>
-                            <input type="text" class="form-control" name="first_name" id="first_name" aria-describedby="emailHelp">
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <label for="last_name" class="form-label">Last Name</label>
-                            <input type="text" class="form-control" name="last_name" id="last_name" aria-describedby="emailHelp">
-                        </div>
-                    </div>
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Email address <span class='red-star'>*</span> </label>
-                        <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp">
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 mb-3">
-                            <label for="password" class="form-label">Password <span class='red-star'>*</span> </label>
-                            <input type="password" name="password" class="form-control" id="password">
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <label for="confirm_password" class="form-label">Confirm Password <span class='red-star'>*</span> </label>
-                            <input type="password" class="form-control" id="confirm_password" name="confirm_password">
+                        <div class="col mb-3">
+                            <label for="title" class="form-label">Title<span class='red-star'>*</span> </label>
+                            <textarea class="form-control" name="title" id="title" rows=3> {{ question[1] }} </textarea>
                         </div>
                     </div>
 
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                            
+                    <label for="options" class="form-label">Options <span class='red-star'>*</span></label>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">            
+                            <input type="text" name="options" value="{{ question[2][0] }}" class="form-control" placeholder="Option 1">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <input type="text" name="options" value="{{ question[2][1] }}" class="form-control" placeholder="Option 2">
+                            
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">            
+                            <input type="text" name="options" value="{{ question[2][2] }}" class="form-control" placeholder="Option 3">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <input type="text" name="options" value="{{ question[2][3] }}" class="form-control" placeholder="Option 4">
+                            
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="answer" class="form-label">Correct Answer <span class='red-star'>*</span> </label>
+                        <input type="text" name="answer" value="{{ question[3] }}" class="form-control" id="answer" aria-describedby="emailHelp">
+                    </div>
+                    
+
+                    <button type="submit" class="btn btn-primary">Update</button>
                 </form>
             </div>
         </div>
 
-         <!-- 
+        <!-- 
           <script src="{{ url_for('static',filename='js/bootstrap.min.js') }}"></script>
           -->
               

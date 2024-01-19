@@ -90,11 +90,13 @@ function check_answer(){
 
 // function of creating end game elements
 function game_over(){
-    container.innerHTML = '<h1>Game Over!</h1> <br> <h1> Score: ' + result +'/'+ questions.length + '</h1>'
+    container.innerHTML = '<h1>Game Over!</h1> <br> <h1> Score: ' + result +'/'+ questions.length + '</h1><form><input type="hidden" value="'+ result + '"><button id="start">Restart</button> </form> '
 
-    let restart_button = document.createElement('button')
-    restart_button.setAttribute('id','start')
-    restart_button.innerText= "Restart"
-    container.append(restart_button)
+    // let restart_button = document.createElement('button')
+    // restart_button.setAttribute('id','start')
+    // restart_button.innerText= "Restart"
+    // container.append(restart_button)
+    // container.append('</form>')
+    // container.innerHTML += '<button id="start">Restart</button> </form>'
     start()
 }
