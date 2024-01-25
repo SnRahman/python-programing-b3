@@ -6,4 +6,6 @@ urlpatterns = [
     path('display/<int:id>/',views.display),
     path('lists/',views.lists),
     path('dict/',views.dict),
+    path('signup/',views.signup),
+    path('register/',views.register,name='register')
 ]

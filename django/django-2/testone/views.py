@@ -66,3 +66,23 @@ def dict(request):
             ]
     
     return render(request,'dict.html',{'products':products})
+
+def signup(request):
+    return render(request,'signup.html')
+
+def register(request):
+    if request.method == 'POST':
+        first_name = request.POST['first_name']
+        last_name = request.POST['last_name']
+        email = request.POST['email']
+        phone = request.POST['phone']
+        password = request.POST['password']
+        confirm_password = request.POST['confirm_password']
+        form_data = request.POST
+
+        if first_name and last_name and email and phone and password and confirm_password and password == confirm_password:
+            return render(request,'register.html',{'form_data': form_data})
+
+        return HttpResponse( f'fist name: {first_name}' )
+    else:
+        return HttpResponse('method not allowed.')
