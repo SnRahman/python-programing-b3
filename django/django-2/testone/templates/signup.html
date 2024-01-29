@@ -12,7 +12,8 @@
     <body>
         <div class="container">
             <h1>Sign Up</h1>
-            <form action="{% url 'register' %}" method="POST">
+            {% comment %} <form action="{% url 'register' %}" method="POST"> {% endcomment %}
+                <form action="{% url 'signup' %}" method="POST">
                 {% csrf_token %}
 
                 <div class="mb-3">

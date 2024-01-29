@@ -1,5 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from .models import Student
+
 def home(request):
     return render(request,'homeone.html')
 
@@ -68,7 +70,47 @@ def dict(request):
     return render(request,'dict.html',{'products':products})
 
 def signup(request):
-    return render(request,'signup.html')
+    if request.method == 'GET':
+        return render(request,'signup.html')
+    else:
+        if request.method == 'POST':
+            first_name = request.POST['first_name']
+            last_name = request.POST['last_name']
+            email = request.POST['email']
+            phone = request.POST['phone']
+            password = request.POST['password']
+            confirm_password = request.POST['confirm_password']
+            form_data = request.POST
+
+            if first_name and last_name and email and phone and password and confirm_password and password == confirm_password:
+                student =  Student(first_name = first_name, last_name= last_name, email=email,phone=phone,password = password)
+                student.save()
+                
+                return redirect('students')
+                # return render(request,'register.html',{'form_data': form_data})
+            else:
+                return HttpResponse('Invalid data')
+
+def students_display(request):
+    students = Student.objects.all()
+    # return HttpResponse(students[0].id)
+    return render(request,'students.html',{'students':students})
+
+def student_delete(request,id):
+    # student = Student.objects.get(id= id)
+    student = Student.objects.get(pk= id)
+    student.delete()
+    return redirect('students')
+    return HttpResponse(student)
+
+
+    return HttpResponse(id)
+
+
+
+
+
+
 
 def register(request):
     if request.method == 'POST':
@@ -82,7 +124,8 @@ def register(request):
 
         if first_name and last_name and email and phone and password and confirm_password and password == confirm_password:
             return render(request,'register.html',{'form_data': form_data})
+        else:
+            return HttpResponse('Invalid data')
 
-        return HttpResponse( f'fist name: {first_name}' )
     else:
         return HttpResponse('method not allowed.')
