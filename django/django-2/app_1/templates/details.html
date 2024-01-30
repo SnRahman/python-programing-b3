@@ -17,7 +17,7 @@
         <div class='container'>
             <div class='d-flex justify-content-between my-5'>
                 <h1>Students Records</h1>
-                <a class='btn btn-primary h-1 signup-btn' href="{% url 'signup' %}" >Register Student </a>
+                <a class='btn btn-primary h-1 signup-btn' href="{% url 'signin' %}" >Register Student </a>
             </div>
             
             <table class="table table-striped">
@@ -33,20 +33,18 @@
                   </tr>
                 </thead>
                 <tbody>
-                    
-                    {%  for student in students %}
+                    {% for user in users %}
                         <tr>
-                            <td> {{ student.id }}  </td>
-                            <td> {{ student.first_name }}   </td>
-                            <td> {{ student.last_name }}   </td>
-                            <td> {{ student.email }}   </td>
-                            <td> {{ student.phone }}   </td>
-                            <td> {{ student.password }}   </td>
-                            <td>
-                                <a href='#'> <i class="fa-solid fa-pen"></i> </a>  
-                                <a href=" {% url 'delete_student' student.id  %} "> <i class="fa-solid fa-trash"></i> </a> 
-                            </td>
-
+                            <th scope="col">{{user.id}}</th>
+                            <th scope="col">{{user.first_name}}</th>
+                            <th scope="col">{{user.last_name}}</th>
+                            <th scope="col">{{user.email}}</th>
+                            <th scope="col">{{user.phone}}</th>
+                            <th scope="col">{{user.password}}</th>
+                            <th scope="col">
+                                <a href="{% url 'edit_user' user.id %}"> <i class="fa-solid fa-pen"></i> </a>   
+                                <a href="{% url 'delete' user.id %}"> <i class="fa-solid fa-trash"></i> </a> 
+                            </th>
                         </tr>
                     {% endfor %}
                 </tbody>
