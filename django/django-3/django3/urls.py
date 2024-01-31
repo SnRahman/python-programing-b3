@@ -1,5 +1,5 @@
 """
-URL configuration for ACI project.
+URL configuration for django3 project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.0/topics/http/urls/
@@ -16,9 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls.static import static
+
+from .settings import BASE_DIR,  MEDIA_URL, MEDIA_ROOT
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('test/',include('testone.urls')),
-    # path('app/',include('app_1.urls'))
-]
+    path('',include('website.urls')),
+
+] + static(MEDIA_URL,document_root=MEDIA_ROOT)
+# ] + static('media',document_root= BASE_DIR / 'media' )
