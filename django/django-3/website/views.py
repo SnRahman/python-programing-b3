@@ -1,12 +1,14 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .forms.product_form import ProductForm
-
+from .models import Product
 
 # Create your views here.
 
 def dashboard(request):
-    return HttpResponse('hello!')
+    products = Product.objects.all()
+    # return HttpResponse(products[0].price)
+    return render(request,'dashboard.html',{'products':products})
 
 def signup(request):
     if request.method == 'GET':
@@ -17,6 +19,27 @@ def signup(request):
         form = ProductForm( request.POST,request.FILES )
         if form.is_valid():
             form.save()
-            return HttpResponse('form submitted')
+            return redirect('dashboard')
         else:
             return redirect('signup')
+        
+def edit_product(request,id):
+    product = Product.objects.get(pk=id)
+    if request.method == 'GET':
+        form =  ProductForm(instance=product)
+        # return HttpResponse(id)
+        return render(request,'edit_product.html',{'form':form, 'id':id })
+    else:
+        form = ProductForm(request.POST, request.FILES, instance=product )
+        if form.is_valid():
+            form.save()
+            return redirect('dashboard')
+        else:
+            return HttpResponse(form.errors)
+
+def delete_product(request,id):
+    product=Product.objects.get(pk=id)
+    product.delete()
+    return redirect('dashboard')
+
+    return HttpResponse(product)

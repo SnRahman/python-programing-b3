@@ -8,24 +8,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
         <link rel="stylesheet" href="">
-        <style>
-            {% comment %} .category-input {
-                background-color: red;
-            } {% endcomment %}
-
-        </style>
     </head>
     <body>
         {% include '_navbar.html' %}
 
 
         <div class="container">
-            <h1 class="my-5">Add New Product</h1>
-                <form action="{% url 'signup' %}" method="POST" enctype="multipart/form-data">
+            <h1>Edit Product</h1>
+                <form action="{% url 'edit_product' id  %}" method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
                     {{ form.as_p }}
                 
-                    <button type="submit" class="btn btn-primary">Register</button>
+                    <button type="submit" class="btn btn-primary">Update</button>
                 </form>
         </div>
         
