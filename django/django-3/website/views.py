@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .forms.product_form import ProductForm
 from .models import Product
+from django.contrib import messages
 
 # Create your views here.
 
@@ -14,13 +15,15 @@ def signup(request):
     if request.method == 'GET':
         form = ProductForm()
         # return HttpResponse(form)
-        return render(request,'signup.html',{'form':form})
+        return render(request,'add_product.html',{'form':form})
     else:
         form = ProductForm( request.POST,request.FILES )
         if form.is_valid():
             form.save()
+            messages.success(request,"Product has been added Successfully!")
             return redirect('dashboard')
         else:
+            messages.error(request,"Error Occurred while adding product.")
             return redirect('signup')
         
 def edit_product(request,id):
@@ -42,4 +45,3 @@ def delete_product(request,id):
     product.delete()
     return redirect('dashboard')
 
-    return HttpResponse(product)
