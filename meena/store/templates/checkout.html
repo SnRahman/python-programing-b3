@@ -1,0 +1,122 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block 'title' %} {% endblock %}
+
+{% block 'content' %} 
+          <!-- main content -->
+     
+          <div class="container my-5 d-flex justify-content-between color displayblock">
+            <light><a href="" > Account </a> / <a href="" >My Account</a> /  <a href="" >Product </a>  / <a href="" >View Cart</a>  /   <a href=""class="fw-bold"> CheckOut </a> </light>
+          </div>
+            
+            <div  class="container pe-3 d-flex justify-content-between pb-5">
+              <div>
+                
+              </div>
+                <div class="col-md-5 row g-4 ">
+                    <form action="" method="POST">
+                      {% csrf_token %}
+                      <input type="hidden" name="order_amount" value="{{ grand_total }}">
+                      <h2 class="forgot-password">Billing Details</h2>
+        
+                      <div class="form-group col-md-10">
+                          <label for="inputEmail4" class="form-label forgot-password ">First Name</label>
+                          {{ form.first_name }}
+                        </div>
+            
+                        <div class="form-group col-md-10">
+                          <label for="inputPassword4" class="form-label forgot-password">Last Name</label>
+                          {{ form.last_name }}
+                        </div>
+            
+                        <div class="form-group col-md-10">
+                          <label for="inputEmail4" class="form-label forgot-password">Street Address</label>
+                          {{ form.address }}
+                          
+                        </div>
+            
+                      <!-- <div class="form-row"> -->
+            
+                          <div class="form-group col-md-10">
+                          <label for="inputCity " class="forgot-password" >Town/City*</label>
+                          {{ form.city }}
+                        </div>
+            
+                        <div class="form-group col-md-10">
+                          <label for="inputCity"  class="forgot-password"> Phone Number*</label>
+                          {{form.phone}}
+                        </div>
+            
+                        <div class="form-group col-md-10">
+                          <label for="inputCity"  class="forgot-password">Email Address*</label>
+                          {{ form.email }}
+                        </div>
+            
+                      </div>
+            
+                      <div class="justify-content-center col-md-6 mx-3"> 
+                        
+                        {% comment %} {% if cart_items %}
+                          {% for cart in cart_items %}
+                            <div class="d-flex justify-content-between my-3">
+                                    <div class="col-md-2">   <img src=" {{ cart.product.image.url }}" height="40px" width="60px" alt=""> </div>
+                                    <div class="col-md-9 px-1 fw-bold"> {{ cart.product.name }} </div>
+                                    <div class="col-md-1 fw-bold p-0"><span>  $ </span> {{ cart.product.price }}</div>
+                            </div>
+                          {% endfor %}
+                        {% endif %} {% endcomment %}
+                                  
+                        
+            
+                                
+                          <div class="d-flex justify-content-between  pb-4 form-inputs">
+                              <div class="col-md-2  fw-bold">  Subtotal: </div>
+                              <div class="col-md-2"> </div>
+                              {% comment %} <div class="col-md-0 fw-bold"> <span> $ </span> {{ grand_total }}</div>     {% endcomment %}
+                            
+                          </div>
+                    
+                          <div class="d-flex justify-content-between  pb-4 form-inputs">
+                              <div class="col-md-2  fw-bold">  Shipping: </div>
+                              <div class="col-md-2"> </div>
+                              <div class="col-md-0 fw-bold"> <span>  </span> Free </div>    
+                            
+                          </div>
+            
+                          <div class="d-flex justify-content-between  pb-4">
+                              <div class="col-md-2  fw-bold">  Total: </div>
+                              <div class="col-md-2"> </div>
+                              {% comment %} <div class="col-md-0 fw-bold"> <span> $ </span> {{ grand_total }} </div>     {% endcomment %}
+                            
+                          </div>
+                          <div class=" d-flex align-items-center justify-content-between">
+                            <input type="radio" id="rad1" name="mod" class="displayblock">
+                            <label class="color-lable1"  for="rad1"></label>
+                            <span class="color-heading ms-3">Bank </span>
+                            <div class="col-lg-9"></div>
+                            <div>
+                              <img src="{% static 'img/paypal.png' %}" height="30px" width="40px" alt="">
+                              <img src="{% static 'img/visa.jpg' %}" height="30px" width="40px" alt="">
+                              <!-- <img src="{% static 'store/img/rsms33bvntdy2yulumkt-2.png'%}" height="30px" width="30px" alt=""> -->
+                          </div>
+                          </div> 
+                          
+                          <div class=" d-flex align-items-center justify-content-left">
+                            <input type="radio" id="rad2" name="mod" class="displayblock" checked>
+                            <label class="color-lable1" for="rad2"></label>
+                            <span class="color-heading ms-3">Cash on Delivery </span>
+                          </div>
+                        <div class="d-flex mt-2">
+                              <input type="text" name="coupon-code" id="coupon-code" placeholder="Coupon Code" class="coupon-code  displayblock">
+                              <Button type="button" name="coupon-code" value="coupon-code" class="btn-cart ms-3">Apply Coupon</Button>
+                              </div>
+                              <div class="my-3">
+                                  <Button type="submit" name="coupon-code" value="coupon-code" class="btn-cart">Place Order</Button>
+                              </div>
+            
+                              <div class="col-md-8"> </div>
+                          </div>
+                      </div>
+                  </form>
+{% endblock %}
