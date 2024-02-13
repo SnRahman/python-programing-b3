@@ -14,6 +14,12 @@
         {% include '_pre_nav.html' %}
         {% include '_navbar.html' %}
         
+        {% for message in messages %}
+            <div class="alert alert-{% if message.tags == 'error' %}danger{% else %}{{message.tags}}{% endif %}" role="alert">
+                {{ message }}
+            </div>
+        {% endfor %}
+
         {% block 'content' %}
         
         {% endblock %}

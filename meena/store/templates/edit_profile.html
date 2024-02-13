@@ -18,21 +18,26 @@
         <div class=" containermyaccount d-flex justify-content-between mt-3">           
             {% include '_profile_nav.html' %}
             <div  class="container pe-5">
-            <form class="  col-md-8 row g-3 fborder" action="" method="POST">
+            <form class="  col-md-8 row g-3 fborder" action="{% url 'edit_profile' %}" method="POST">
                 {% csrf_token %}
                 <h2 class="forgot-password">Edit Your Profile</h2>
+                {% comment %} {{ form.as_p }} {% endcomment %}
                 <div class="col-lg-5">
-                    <label for="inputEmail4" class="form-label forgot-password">Full Name</label>
+                    <label for="inputEmail4" class="form-label forgot-password">First Name</label>
                     {{ form.first_name }}
-                    </div><br>
-                    <div class=" col-lg-5">
+                </div><br>
+                <div class="col-lg-5">
+                    <label for="inputEmail4" class="form-label forgot-password">Last Name</label>
+                    {{ form.last_name }}
+                </div><br>
+                <div class=" col-lg-5">
                     <label for="inputPassword4" class="form-label forgot-password">Username</label>
                     {{ form.username }}
-                    </div>
-                    <div class="col-lg-5">
+                </div>
+                <div class="col-lg-5">
                     <label for="inputEmail4" class="form-label forgot-password">Email</label>
                     {{ form.email }}
-                    </div><br>
+                </div><br>
                     
                 <div class=" d-flex justify-content-lg-center btn1  mb-4">
                 <div class="col-md-5"></div>     
