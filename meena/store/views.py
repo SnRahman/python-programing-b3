@@ -6,10 +6,14 @@ from django.contrib.auth import authenticate, login, logout, update_session_auth
 from .forms.user_creation_form import UserCustomCreationForm
 from .forms.user_change_form import UserCustomChangeForm
 from .forms.password_change_form import PasswordCustomChangeForm
+from .models import Product, Category
+
 
 # Create your views here.
 def shop(request):
-    return render(request,'shop.html')
+    products = Product.objects.all()
+    # return HttpResponse(products)
+    return render(request,'shop.html', {'products':products})
 
 def user_signup(request):
     form = UserCustomCreationForm()
@@ -115,7 +119,8 @@ def checkout(request):
     return render(request,'checkout.html')
 
 def product(request,id):
-    return render(request,'product.html')
+    product = Product.objects.get(pk=id)
+    return render(request,'product.html',{'product': product})
 
 def add_to_cart(request):
     return redirect('show_cart')

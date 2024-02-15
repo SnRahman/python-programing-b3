@@ -112,6 +112,10 @@ li nav-item a{
   height: 800px;
 }
 
+.product-img {
+  width: 32vw;
+}
+
 .product-details-img {
   height: 100%;
   width: 100%;
@@ -174,6 +178,8 @@ li nav-item a{
 .footer-search::placeholder {
   color: #F3EEFA !important;
 }
+
+
 
 .footer-btn {
   background-color:#7B4F9A !important;
@@ -614,6 +620,8 @@ border-radius: 5px;
   height: 300px !important;
   overflow: scroll;
 }
-
-
+.card-sale {
+  /* background-color:#7B4F9A; */
+  background-color: green;
+}
 

@@ -6,11 +6,11 @@
 {% block 'content' %} 
 <section class="py-5">
     {% comment %} {% if product %} {% endcomment %}
-        <div class="container px-4 px-lg-5 my-5">
+        <div class="container px-4 px-lg-5 my-5"> 
             <div class="row gx-4 gx-lg-5 align-items-center">
-                <div class="col-md-6 main-img"><img class="card-img-top mb-6 mb-md-0 product-details-img" src="{% static 'img/bag.jpg' %}" alt="..." /></div>
+                <div class="col-md-6 product-img"><img class="card-img-top mb-6 mb-md-0 product-details-img" src="{{ product.image.url }}" alt="..." /></div>
                 <div class="col-md-6">
-                    {% comment %} <h2 class="fw-bolder">{{ product.name }}</h2> {% endcomment %}
+                    <h2 class="fw-bolder">{{ product.title }}</h2>
                     <!-- Product reviews-->
                     <div class="d-flex text-warning mb-2">
                         <div class="bi-star-fill"></div>
@@ -22,12 +22,12 @@
                         <span class="text-success">In Stock </span></p> 
                     </div>
                     <div class="fs-5 mb-3">
-                        {% comment %} {% if product.is_sale %}
+                        {% if product.is_sale %}
                             <span class="text-decoration-line-through">$ {{ product.price }}</span>
                             <span>${{ product.sale_price }}</span>
                         {% else %}
                             <span>${{ product.price }}</span>
-                        {% endif %} {% endcomment %}
+                        {% endif %}
                     </div>
                     <p class="lead">{{ product.description }}</p>
                     <hr>
