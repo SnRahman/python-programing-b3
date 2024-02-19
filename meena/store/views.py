@@ -6,7 +6,7 @@ from django.contrib.auth import authenticate, login, logout, update_session_auth
 from .forms.user_creation_form import UserCustomCreationForm
 from .forms.user_change_form import UserCustomChangeForm
 from .forms.password_change_form import PasswordCustomChangeForm
-from .models import Product, Category
+from .models import Product, Category, Cart
 
 
 # Create your views here.
@@ -113,7 +113,16 @@ def change_password(request):
         return redirect('shop')
 
 def show_cart(request):
-    return render(request,'show_cart.html')
+    cart_items = Cart.objects.filter(user=request.user)
+    sub_total = 0.00
+    shipping_charges = 5.00
+    for  item in cart_items:
+        # sub_total += float(item.product.price) * item.quantity
+        sub_total += float(item.sub_total)
+
+    grand_total = sub_total + shipping_charges
+    # return HttpResponse(grand_total)
+    return render(request,'show_cart.html' , {'cart_items': cart_items, 'shipping_charges':shipping_charges, 'sub_total':sub_total, 'grand_total' : grand_total})
 
 def checkout(request):
     return render(request,'checkout.html')
@@ -123,4 +132,26 @@ def product(request,id):
     return render(request,'product.html',{'product': product})
 
 def add_to_cart(request):
-    return redirect('show_cart')
+    if request.method == 'POST':
+        product_id = request.POST['product_id']
+        qty = request.POST['qty']
+        product = Product.objects.get(pk=product_id)
+        sub_total = int(qty) * product.price
+
+        cart = Cart.objects.get(product = product, user= request.user)
+        if cart is None:
+            # user = request.user
+            cart = Cart(product = product, user = request.user, quantity=qty, sub_total = sub_total )
+            cart.save()
+        else:
+            cart.quantity += int(qty)
+            cart.sub_total += sub_total
+            cart.save()
+
+        messages.success(request,'Product added in cart Successfully!')
+        # return HttpResponse(request.POST)
+    
+        return redirect('show_cart')
+    else:
+        messages.warning(request,'Method not allowed.')
+        return redirect('shop')

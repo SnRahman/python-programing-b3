@@ -21,17 +21,14 @@
             </thead>
 
             <tbody>
-              {% comment %} {% if cart_items %}
-                {% for cart in cart_items %}
-                  <tr>
-                    <td scope="row">{{ cart.product.name }}</th>
-                    <td> $ {{ cart.product.price }} </td>
-                    <td> {{ cart.qty }} </td>
-                    <!-- <td> <input type="number" class="inp1 displayblock" ></td> -->
-                    <td> $ {{ cart.sub_total }}</td>
-                  </tr>
-                {% endfor %}
-              {% endif %} {% endcomment %}
+              {% for item in cart_items %}
+              <tr>
+                <td> {{ item.product.title }} </td>
+                <td> {{ item.product.price }} </td>
+                <td> {{ item.quantity }} </td>
+                <td> {{ item.sub_total }} </td>
+              </tr>
+              {% endfor %}
             </tbody>
           </table>
         <br>
@@ -63,7 +60,7 @@
                     <input type="hidden">
                     <p>Subtotal:</p>
                     <span>
-                       {% comment %} $ {{ grand_total }} {% endcomment %}
+                       $ {{ sub_total }}
                     </span>
                  </div>
                  <hr>
@@ -71,7 +68,7 @@
                     <input type="hidden">
                     <p>Suhipping:</p>
                     <span>
-                        Free
+                       $ {{ shipping_charges }}
                     </span>
                  </div>
                   <hr>
@@ -79,7 +76,7 @@
                     <input type="hidden">
                     <p>Total:</p>
                     <span>
-                      {% comment %} $ {{ grand_total }} {% endcomment %}
+                      $ {{ grand_total }}
                     </span>
                  </div>
                  
