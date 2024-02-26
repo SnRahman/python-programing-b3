@@ -6,6 +6,7 @@ from django.contrib.auth import authenticate, login, logout, update_session_auth
 from .forms.user_creation_form import UserCustomCreationForm
 from .forms.user_change_form import UserCustomChangeForm
 from .forms.password_change_form import PasswordCustomChangeForm
+from .forms.checkout_form import Checkout
 from .models import Product, Category, Cart
 
 
@@ -113,45 +114,88 @@ def change_password(request):
         return redirect('shop')
 
 def show_cart(request):
-    cart_items = Cart.objects.filter(user=request.user)
-    sub_total = 0.00
-    shipping_charges = 5.00
-    for  item in cart_items:
-        # sub_total += float(item.product.price) * item.quantity
-        sub_total += float(item.sub_total)
+    if request.user.is_authenticated:
+        cart_items = Cart.objects.filter(user=request.user, order_id=0)
+        sub_total = 0.00
+        shipping_charges = 5.00
+        for  item in cart_items:
+            # sub_total += float(item.product.price) * item.quantity
+            sub_total += float(item.sub_total)
 
-    grand_total = sub_total + shipping_charges
-    # return HttpResponse(grand_total)
-    return render(request,'show_cart.html' , {'cart_items': cart_items, 'shipping_charges':shipping_charges, 'sub_total':sub_total, 'grand_total' : grand_total})
-
+        grand_total = sub_total + shipping_charges
+        # return HttpResponse(grand_total)
+        return render(request,'show_cart.html' , {'cart_items': cart_items, 'shipping_charges':shipping_charges, 'sub_total':sub_total, 'grand_total' : grand_total})
+    else:
+        messages.warning(request,'Kindly login first.')
+        return redirect('login')
 def checkout(request):
-    return render(request,'checkout.html')
+    if request.user.is_authenticated:
+        cart_items = Cart.objects.filter(user=request.user,order_id=0)
+
+        if request.method =='GET':
+            checkout_form = Checkout()
+            sub_total = 0.00
+            shipping_charges = 5.00
+            for  item in cart_items:
+                # sub_total += float(item.product.price) * item.quantity
+                sub_total += float(item.sub_total)
+
+            grand_total = sub_total + shipping_charges
+
+            return render(request,'checkout.html', { "form" : checkout_form ,'cart_items': cart_items, 'shipping_charges':shipping_charges, 'sub_total':sub_total, 'grand_total' : grand_total})
+        else:
+            checkout_form = Checkout(request.POST)
+            if checkout_form.is_valid():
+                order = checkout_form.save()
+                
+                for item in cart_items:
+                    item.order_id = order.id
+                    item.save()
+
+                messages.success(request,"Your order has been placed")
+                return redirect('shop')
+            else:
+                for error in checkout_form.errors:
+                    messages.error(request,f'provide valid information in {error}')
+                return redirect('checkout') 
+    else:
+        messages.warning(request,'Kindly login first.')
+        return redirect('login')
+
 
 def product(request,id):
     product = Product.objects.get(pk=id)
     return render(request,'product.html',{'product': product})
 
 def add_to_cart(request):
-    if request.method == 'POST':
-        product_id = request.POST['product_id']
-        qty = request.POST['qty']
-        product = Product.objects.get(pk=product_id)
-        sub_total = int(qty) * product.price
+    if request.user.is_authenticated:
+        if request.method == 'POST':
+            product_id = request.POST['product_id']
+            qty = request.POST['qty']
+            product = Product.objects.get(pk=product_id)
+            sub_total = int(qty) * product.price
+            
+            try:
+                cart = Cart.objects.get(product = product, user= request.user, order_id = 0)
+            except:
+                cart = None
 
-        cart = Cart.objects.get(product = product, user= request.user)
-        if cart is None:
-            # user = request.user
-            cart = Cart(product = product, user = request.user, quantity=qty, sub_total = sub_total )
-            cart.save()
+            if cart is None:
+                # user = request.user
+                cart = Cart(product = product, user = request.user, quantity=qty, sub_total = sub_total )
+                cart.save()
+            else:
+                cart.quantity += int(qty)
+                cart.sub_total += sub_total
+                cart.save()
+
+            messages.success(request,'Product added in cart Successfully!')
+            # return HttpResponse(request.POST)
+        
+            return redirect('show_cart')
         else:
-            cart.quantity += int(qty)
-            cart.sub_total += sub_total
-            cart.save()
-
-        messages.success(request,'Product added in cart Successfully!')
-        # return HttpResponse(request.POST)
-    
-        return redirect('show_cart')
+            messages.warning(request,'Method not allowed.')
+            return redirect('shop')
     else:
-        messages.warning(request,'Method not allowed.')
-        return redirect('shop')
+        messages.warning(request,'Kindly login first.')
+        return redirect('login')

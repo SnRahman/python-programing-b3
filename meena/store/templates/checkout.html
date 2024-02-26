@@ -15,9 +15,9 @@
                 
               </div>
                 <div class="col-md-5 row g-4 ">
-                    <form action="" method="POST">
+                    <form action="{% url 'checkout' %}" method="POST">
                       {% csrf_token %}
-                      <input type="hidden" name="order_amount" value="{{ grand_total }}">
+                      {% comment %} <input type="hidden" name="order_amount" value="{{ grand_total }}"> {% endcomment %}
                       <h2 class="forgot-password">Billing Details</h2>
         
                       <div class="form-group col-md-10">
@@ -57,37 +57,34 @@
             
                       <div class="justify-content-center col-md-6 mx-3"> 
                         
-                        {% comment %} {% if cart_items %}
+                        {% if cart_items %}
                           {% for cart in cart_items %}
                             <div class="d-flex justify-content-between my-3">
                                     <div class="col-md-2">   <img src=" {{ cart.product.image.url }}" height="40px" width="60px" alt=""> </div>
-                                    <div class="col-md-9 px-1 fw-bold"> {{ cart.product.name }} </div>
-                                    <div class="col-md-1 fw-bold p-0"><span>  $ </span> {{ cart.product.price }}</div>
+                                    <div class="col-md-8 px-1 fw-bold"> {{ cart.product.title }} </div>
+                                    <div class="col-md-2 fw-bold p-0"><span>  $ </span> {{ cart.sub_total }}</div>
                             </div>
                           {% endfor %}
-                        {% endif %} {% endcomment %}
+                        {% endif %}
                                   
-                        
-            
-                                
                           <div class="d-flex justify-content-between  pb-4 form-inputs">
                               <div class="col-md-2  fw-bold">  Subtotal: </div>
-                              <div class="col-md-2"> </div>
-                              {% comment %} <div class="col-md-0 fw-bold"> <span> $ </span> {{ grand_total }}</div>     {% endcomment %}
+                              <div class="col-md-8"> </div>
+                              <div class="col-md-2 fw-bold"> <span> $ </span> {{ sub_total }}</div>    
                             
                           </div>
                     
                           <div class="d-flex justify-content-between  pb-4 form-inputs">
                               <div class="col-md-2  fw-bold">  Shipping: </div>
-                              <div class="col-md-2"> </div>
-                              <div class="col-md-0 fw-bold"> <span>  </span> Free </div>    
+                              <div class="col-md-8"> </div>
+                              <div class="col-md-2 fw-bold"> <span>  $ </span> {{ shipping_charges }} </div>    
                             
                           </div>
             
                           <div class="d-flex justify-content-between  pb-4">
                               <div class="col-md-2  fw-bold">  Total: </div>
-                              <div class="col-md-2"> </div>
-                              {% comment %} <div class="col-md-0 fw-bold"> <span> $ </span> {{ grand_total }} </div>     {% endcomment %}
+                              <div class="col-md-8"> </div>
+                              <div class="col-md-2 fw-bold"> <span> $ </span> {{ grand_total }} </div>    
                             
                           </div>
                           <div class=" d-flex align-items-center justify-content-between">
