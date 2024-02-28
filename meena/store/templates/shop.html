@@ -17,9 +17,9 @@
             Filter By Category
         </button>
         <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="#">Action</a></li>
-        <li><a class="dropdown-item" href="#">Another action</a></li>
-        <li><a class="dropdown-item" href="#">Something else here</a></li>
+            {% for category in categories %}
+                <li><a class="dropdown-item" href="{% url 'category_filter' category.id %}">{{ category.name }}</a></li>
+            {% endfor %}
         </ul>
     </div>
 

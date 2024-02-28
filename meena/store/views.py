@@ -8,13 +8,26 @@ from .forms.user_change_form import UserCustomChangeForm
 from .forms.password_change_form import PasswordCustomChangeForm
 from .forms.checkout_form import Checkout
 from .models import Product, Category, Cart
-
+from django.core.mail import send_mail
+from django.conf import settings
+from django.template import loader
 
 # Create your views here.
 def shop(request):
     products = Product.objects.all()
+    categories = Category.objects.all()
     # return HttpResponse(products)
-    return render(request,'shop.html', {'products':products})
+    return render(request,'shop.html', {'products':products , 'categories' : categories})
+
+def category_filter(request,id):
+    categories = Category.objects.all()
+    category = Category.objects.get(pk = id)
+    products = Product.objects.filter(category= category)
+    if products is None or len(products) == 0:
+        messages.info(request,"No product in this category")
+        return redirect('shop')
+        
+    return render(request,'shop.html', {'products':products , 'categories' : categories})
 
 def user_signup(request):
     form = UserCustomCreationForm()
@@ -68,7 +81,30 @@ def user_logout(request):
 
 
 
+def send_email():
+    subject = 'testing'
+    message = "This is a sample email"
+    form = settings.EMAIL_HOST_USER
+    to = ['pehlidachan@gmail.com']
+    send_mail(subject,message,form,to)
+
+def send_email_template(cart_items,shipping_charges,sub_total,grand_total,email):
+    subject = 'testing'
+    form = settings.EMAIL_HOST_USER
+    to = email
+
+    # text_file = loader.render_to_string('email_template.txt')
+    # html_file = loader.render_to_string('email_template.html')
+
+    text_file = loader.render_to_string('order_email.txt',{'cart_items': cart_items,'shipping_charges':shipping_charges, 'sub_total':sub_total, 'grand_total' : grand_total})
+    html_file = loader.render_to_string('order_email.html',{'cart_items': cart_items,'shipping_charges':shipping_charges, 'sub_total':sub_total, 'grand_total' : grand_total})
+
+
+    send_mail(subject,text_file,form,to, html_message=html_file)
+
+
 def about(request):
+    # send_email_template()
     return render(request,'about.html')
 
 def contact(request):
@@ -131,27 +167,26 @@ def show_cart(request):
 def checkout(request):
     if request.user.is_authenticated:
         cart_items = Cart.objects.filter(user=request.user,order_id=0)
+        sub_total = 0.00
+        shipping_charges = 5.00
+        for  item in cart_items:
+            # sub_total += float(item.product.price) * item.quantity
+            sub_total += float(item.sub_total)
+
+        grand_total = sub_total + shipping_charges
 
         if request.method =='GET':
             checkout_form = Checkout()
-            sub_total = 0.00
-            shipping_charges = 5.00
-            for  item in cart_items:
-                # sub_total += float(item.product.price) * item.quantity
-                sub_total += float(item.sub_total)
-
-            grand_total = sub_total + shipping_charges
-
             return render(request,'checkout.html', { "form" : checkout_form ,'cart_items': cart_items, 'shipping_charges':shipping_charges, 'sub_total':sub_total, 'grand_total' : grand_total})
         else:
             checkout_form = Checkout(request.POST)
             if checkout_form.is_valid():
                 order = checkout_form.save()
-                
                 for item in cart_items:
                     item.order_id = order.id
                     item.save()
 
+                send_email_template(cart_items,shipping_charges,sub_total,grand_total,checkout_form['email'])
                 messages.success(request,"Your order has been placed")
                 return redirect('shop')
             else:
